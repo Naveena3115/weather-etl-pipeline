@@ -1,0 +1,43 @@
+2026-05-24 21:19:21,602 - INFO - Pipeline started
+2026-05-24 21:19:21,602 - INFO - Starting data extraction
+2026-05-24 21:19:23,411 - INFO - Extraction Successful
+2026-05-24 21:19:23,411 - INFO - JSON data extracted
+2026-05-24 21:19:23,411 - INFO - Starting transformation
+2026-05-24 21:19:23,461 - INFO - Transformation completed
+2026-05-24 21:19:23,461 - INFO - Loading data
+2026-05-24 21:19:23,528 - INFO - Loading completed
+2026-05-24 21:36:57,555 - INFO - Pipeline started
+2026-05-24 21:36:57,555 - INFO - Starting data extraction
+2026-05-24 21:36:59,026 - INFO - Extraction Successful
+2026-05-24 21:36:59,026 - INFO - JSON data extracted
+2026-05-24 21:36:59,026 - INFO - Starting transformation
+2026-05-24 21:36:59,026 - INFO - Transformation completed
+2026-05-24 21:36:59,026 - INFO - Loading data
+2026-05-24 21:36:59,026 - ERROR - Pipeline failed due to exception Cannot save file into a non-existent directory: '..\data'
+Traceback (most recent call last):
+  File "d:\Projects\weather_etl_pipeline\src\etl_pipeline.py", line 41, in <module>
+    df.to_csv("../data/weather_data.csv" , index=False)
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\core\generic.py", line 3989, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\formats\format.py", line 1014, in to_csv
+    csv_formatter.save()
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\formats\csvs.py", line 251, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\common.py", line 749, in get_handle
+    check_parent_directory(str(handle))
+  File "C:\Users\Lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\pandas\io\common.py", line 616, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+OSError: Cannot save file into a non-existent directory: '..\data'
+2026-05-24 21:37:09,834 - INFO - Pipeline started
+2026-05-24 21:37:09,834 - INFO - Starting data extraction
+2026-05-24 21:37:11,233 - INFO - Extraction Successful
+2026-05-24 21:37:11,233 - INFO - JSON data extracted
+2026-05-24 21:37:11,233 - INFO - Starting transformation
+2026-05-24 21:37:11,233 - INFO - Transformation completed
+2026-05-24 21:37:11,233 - INFO - Loading data
+2026-05-24 21:37:11,233 - INFO - Loading completed
