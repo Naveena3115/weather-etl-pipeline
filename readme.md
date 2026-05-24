@@ -30,10 +30,3 @@ python src/etl_pipeline.py
 ## Output
 - `/data/weather_data.csv`
 - `/logs/pipeline.log`
-
-## Future Improvements
-- Multi-city support  
-- Database integration  
-- Scheduling (Airflow/Cron)
-
----
