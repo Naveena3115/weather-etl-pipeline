@@ -16,12 +16,16 @@ try:
     month_path = f"./data/raw/{month}"
     files = glob.glob(f"{month_path}/*.parquet")
 
-    df= [pd.read_parquet(f) for f in files]
-    df_final = pd.concat(df , ignore_index=True)
+    if not files:
+        logging.warning(f"No files found in {month_path}")
+        exit()
+
+    df_list= [pd.read_parquet(f) for f in files]
+    df_final = pd.concat(df_list , ignore_index=True)
 
     os.makedirs("./data/processed" , exist_ok =True)
     path = f"./data/processed/{month}.parquet"
     df_final.to_parquet(path , index  =False)
-    logging.info("Monthly rollup completed")
+    logging.info(f"Monthly rollup completed: {path}")
 except Exception as e:
     logging.exception(f"Monthly rollup failed : {e}")

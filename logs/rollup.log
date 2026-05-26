@@ -1,2 +1,11 @@
 2026-05-26 11:34:26,710 - INFO - Monthly rollup initiated
 2026-05-26 11:34:26,785 - INFO - Monthly rollup completed
+2026-05-26 11:38:12,937 - INFO - Monthly rollup initiated
+2026-05-26 11:38:13,049 - ERROR - Monthly rollup failed : name 'df' is not defined
+Traceback (most recent call last):
+  File "d:\Projects\weather_etl_pipeline\src\monthly_rollup.py", line 24, in <module>
+    df_final = pd.concat(df , ignore_index=True)
+                         ^^
+NameError: name 'df' is not defined
+2026-05-26 11:38:39,879 - INFO - Monthly rollup initiated
+2026-05-26 11:38:39,927 - INFO - Monthly rollup completed: ./data/processed/2026-05.parquet
