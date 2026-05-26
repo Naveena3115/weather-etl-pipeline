@@ -2,6 +2,7 @@ import pandas as pd
 import requests
 from datetime import datetime
 import logging
+import os
 
 logging.basicConfig(
     filename = "./logs/pipeline.log",
@@ -24,6 +25,7 @@ try:
         logging.error(f"Extraction failed with status code: {response.status_code}")
     data = response.json()
     logging.info("JSON data extracted")
+    
     logging.info("Starting transformation")
     current = data["current_weather"]
     weather_data = {
@@ -37,9 +39,16 @@ try:
     }
     df = pd.DataFrame([weather_data])
     logging.info("Transformation completed")
+
     logging.info("Loading data")
-    df.to_csv("./data/weather_data.csv" , index=False)
-    logging.info("Loading completed")
+    base_path = "./data/raw"
+    month_folder = datetime.now().strftime("%Y-%m")
+    folder_path = os.path.join(base_path , month_folder)
+    os.makedirs(folder_path , exist_ok = True)
+    file_name = datetime.now().strftime("%Y%m%d_%H%M%S") + ".parquet"
+    file_path = os.path.join(folder_path , file_name)
+    df.to_parquet(file_path , index=False)
+    logging.info("Loading completed - New file created")
 except Exception as e:
     logging.exception(f"Pipeline failed due to exception {e}")
     print("Pipeline failed")
